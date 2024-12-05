@@ -1,0 +1,67 @@
+
+<div class="container-form" >
+    <form class="form-style" (ngSubmit)="onSubmit()">
+        <div class="container-input" >
+            <label class="label-style" >Titulo</label>
+            <input 
+                        type="text" 
+                        name="title" 
+                        placeholder="Adicionar Titulo" 
+                        id="title"
+                        [(ngModel)]="title"
+                        class="input-style"
+                        >
+                
+        </div>
+        <div class="container-input" >
+            <label class="label-style" >Descrição</label>
+            <textarea 
+                        type="text" 
+                        name="description" 
+                        placeholder="Adicionar Descrição" 
+                        id="description"
+                        [(ngModel)]="description"
+                        class="input-style text-area-style"
+                        ></textarea>
+                
+        </div>
+        <div class="container-input" >
+            <label class="label-style" >Url</label>
+            <input 
+                        type="text" 
+                        name="url" 
+                        placeholder="Adicionar Url da imagem da notícia" 
+                        id="url"
+                        [(ngModel)]="url"
+                        class="input-style"
+                        >
+                
+        </div>
+
+        <div class="container-input" >
+            <label for="category" class="label-style" >Categoria</label>
+            <select name="category" id="category" class="form-select" [(ngModel)]="category" class="input-style input-category" >
+                <option hidden="true" value="" >Selecione uma categoria</option>
+                <option value="Política" >Política</option>
+                <option value="Esporte" >Esporte</option>
+                <option value="Internacional" >Internacional</option>
+            </select>
+        </div>
+        <input type="submit"  value="Enviar" class="btn btn-send" >
+    </form>
+</div>
+
+<div class="container-news" >
+
+    
+
+@for(new of news; track new){
+    <app-adm-new 
+        [new]="new"
+        (onDeleteNew)="deleteNew($event)"
+        (onUpdateNew)="updateNew($event)"
+     ></app-adm-new>
+}
+
+
+</div>

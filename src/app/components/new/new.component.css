@@ -1,0 +1,50 @@
+
+
+.new-container{
+    width: 350px;
+    height: 350px;
+    padding: .5rem;
+    border: 5px solid #000080;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.new-container:hover{
+    border-color: black;
+}
+
+.new-title{
+    font-family: "Montserrat";
+}
+
+.new-image{
+    width: 225px;
+    height: 225px;
+    margin: 2rem auto;
+}
+
+/* .link-style{
+    margin: 0.5rem auto;
+    width: 100px;
+    display: block;
+    text-decoration: none;
+    background-color: #000080;
+    color: white;
+    font-family: "Montserat";
+    font-size: 1.5rem;
+    border-radius: 10px;
+    padding: .25rem;
+} */
+
+.link-style{
+    text-decoration: none;
+}
+
+.link-style:hover{
+    color: #6495ED;
+    border-color: black ;
+}
+
+.link-style:hover{
+    background-color: #6495ED;
+}

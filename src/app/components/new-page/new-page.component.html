@@ -1,0 +1,13 @@
+<div class="container-global" >
+    <div class="container" >
+
+        @if(newValid){
+        <h2 class="title-style" >{{new.title}}</h2>
+        <img class="img-style" src={{new.url}} alt={{new.title}}>
+        <p>{{new.description}}</p>
+        }
+        @if(!newValid){
+            <h2 class="title-style" >Essa notícia não existe não existe</h2>
+        }
+    </div>
+</div>

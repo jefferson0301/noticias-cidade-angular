@@ -1,0 +1,16 @@
+.header{
+    width: 98%;
+    text-align: center;
+    background-color: #000080;
+    color: white;
+    padding: 1%;
+    font-family: "Montserrat";
+    display: flex;
+}
+
+.link-style{
+    text-decoration: none;
+    color: white;
+    font-family: "Montserat";
+    font-size: 1.5rem;
+}

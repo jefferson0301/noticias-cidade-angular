@@ -1,0 +1,44 @@
+.container{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    gap: .5rem;
+    border: 3px solid #000080;
+    padding: .5rem;
+    margin-top: .5rem;
+    margin-left: .5rem;
+    border-radius: 10px;
+}
+
+.container:hover{
+    border-color: black;
+}
+
+.img-style{
+    width: 50%;
+    height: 70%;
+}
+
+.title-style{
+    width: 45%;
+    font-size: 1rem;
+}
+
+.link-style{
+    text-decoration: none;
+}
+
+.link-style:hover{
+    color: #6495ED;
+    border-color: #6495ED;
+}
+
+@media screen and (max-width: 600px){
+    .title-style{
+        font-size: 1.2rem;
+    }
+
+    .img-style{
+        width: 40%;
+    }
+}

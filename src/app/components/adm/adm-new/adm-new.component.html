@@ -1,0 +1,8 @@
+<div class="new-container" >
+    <h3 class="new-title" >{{new.title}}</h3>
+    <img class="new-image" src={{new.url}} alt={{textAlt}}   >
+    <div class="container-btns" >
+        <button class="btn btn-delete" (click)="onDelete(new)" >Excluir</button>
+        <button class="btn btn-edit" (click)="onUpdate(new)" >Editar</button>
+    </div>
+</div>

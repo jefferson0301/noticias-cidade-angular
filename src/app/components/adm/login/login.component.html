@@ -1,0 +1,43 @@
+@if(!flagContinue){
+
+<div class="container"   > 
+    <form (ngSubmit)="onSubmit()" class="form" >
+        <div class="containerInput" >
+            <label class="lbl" for="login">Login</label>
+            <input 
+                    type="text" 
+                    name="text" 
+                    placeholder="Adicionar Tarefa" 
+                    id="text"
+                    [(ngModel)]="loginInput"
+                    class="input"
+                    >
+        </div>
+    
+
+        <div class="containerInput" >
+            <label class="lbl" for="login">Senha</label>
+            <input 
+                    type="password" 
+                    name="password" 
+                    placeholder="Senha" 
+                    id="password"
+                    [(ngModel)]="password"
+                    class="input"
+                    >
+        </div>
+        
+        
+
+        <input class="btn_login" type="submit" value="Entrar"  >
+        
+    </form>
+    
+</div>
+}
+
+@if(flagContinue){
+    
+        <app-painel-adm></app-painel-adm>
+    
+} 
