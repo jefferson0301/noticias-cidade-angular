@@ -1,9 +1,48 @@
 .news-container{
+    width: 100%;
+}
+
+.first-container{
     display: flex;
     align-items: start;
     justify-content: end ;
-    
     width: 100%;
+}
+
+.container-categorys{
+    width: 90%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.container-categorys-news{
+    text-align: left;
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 1%;
+    margin-bottom: 1rem;
+}
+
+.title-categorys{
+    width: 90%;
+    font-size: 2rem;
+    color: #000080;
+}
+
+.container-title-categorys{
+    padding-bottom: .25rem;
+    border-bottom: 1px solid #000080;
+    margin-bottom: 1rem;
+}
+
+.menu-hamburguer{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: none;
 }
 
 .container-news{
@@ -17,16 +56,28 @@
     
 }
 
-.container-last-news{
-    margin-top: 1rem;
+.container-last-news {
+    /* position: absolute;
+    top: 0; */
+    margin: .5rem ;
+    box-shadow: inset 0 0 10px 10px #d3d3d3;
     width: 30%;
-    
+    border-radius: 5px;
+    /* margin: 1rem auto; */
 }
+
+/* .container-more-views {
+    display: block;
+} */
 
 .container{
     width: 100%;
     display: block;
 } 
+
+.container-new-emphasis{
+    width: 65%;
+}
 
 .filter-container{
     display: flex;
@@ -45,6 +96,9 @@
 }
 
 .buton-filter{
+    /* position: fixed;
+    top: 10px ;
+    left: end; */
     margin-left: .5rem;
     background-color: #000080;
     color: white;
@@ -57,17 +111,42 @@
     background-color: #6495ED;
 }
 
-@media screen and (max-width: 600px){
-    .news-container{
+@media screen and (max-width: 1200px){
+    .container-categorys-news{
+        flex-direction: column;
+    }
+
+    .container-categorys{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 900px){
+    .first-container{
         flex-direction: column;
     }
 
     .container-last-news{
         margin: 0 auto;
-        width: 80%;
+        margin-bottom: 1rem;
+        width: 85%;
     }
     .container-news{
         margin: 1rem auto;
         width: 85%;
     }
+
+    .container-new-emphasis{
+        text-align: center;
+        width: 95%;
+        margin: 1rem auto;
+    }
+
+    
+
+    
+}
+
+@media screen and (max-width: 600px){
+    
 }

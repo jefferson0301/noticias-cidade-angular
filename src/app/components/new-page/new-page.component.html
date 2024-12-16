@@ -2,9 +2,13 @@
     <div class="container" >
 
         @if(newValid){
-        <h2 class="title-style" >{{new.title}}</h2>
-        <img class="img-style" src={{new.url}} alt={{new.title}}>
-        <p>{{new.description}}</p>
+            <h2 class="title-style" >{{new.title}}</h2>
+            <img class="img-style" src={{new.url}} alt={{new.title}}>
+            <p class="text-style" >{{new.description}}</p>
+            @if(showRecommendedForYouNews){
+                <app-card-news-rocommended [news]="recommendedForYouNews" ></app-card-news-rocommended>
+            }
+        
         }
         @if(!newValid){
             <h2 class="title-style" >Essa notícia não existe não existe</h2>

@@ -1,0 +1,34 @@
+.container-global{
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.title{
+    margin-bottom: .5rem;
+    text-align: left;
+    color: #000080;
+}
+
+.container-categorys-news{
+    text-align: left;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1%;
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 1200px){
+    .container-categorys-news{
+        text-align: left;
+        align-items: start;
+        flex-direction: column; 
+        margin: none; 
+    }
+
+    .container-categorys{
+        width: 70%;
+    }
+}

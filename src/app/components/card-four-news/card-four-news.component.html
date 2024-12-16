@@ -1,0 +1,11 @@
+<div class="container-brasileirao-news">
+    <div class="container-title-topic" >
+        <h2  >{{title}}</h2>
+    </div>
+
+    <div class="container-more-tree-news container-topic" >
+        @for(new of news; track new){
+                <app-new-direct-columns-short [new]="new"  ></app-new-direct-columns-short>
+        }
+    </div>
+</div>

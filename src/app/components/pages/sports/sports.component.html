@@ -1,0 +1,23 @@
+<div class="container-page-sports" >
+
+    <div class="container-new-emphasis" >
+        <div class="card-new-emphasis-main">
+            <app-new-emphasis-category [new]="newEmpassis" ></app-new-emphasis-category>
+        </div>
+        <div class="card-news-emphasis-secondary">
+            <app-new-emphasis-category [new]="newEmpassis2" ></app-new-emphasis-category>
+        </div> 
+    </div>
+
+    <div class="container-more-tree-news" >
+    @for(new of treeMoreViews; track new){
+        <app-new-direct-column [new]="new"  ></app-new-direct-column>
+    }
+    </div>
+
+    <app-card-four-news [news]="brasileiraoFoursLastNews" [title]="titleBrasileirao" ></app-card-four-news> 
+    <app-card-four-news [news]="internacionalFoursLastNews" [title]="titleInternacional" ></app-card-four-news> 
+    <app-card-four-news [news]="libertadoresFoursLastNews" [title]="titleLibertadores" ></app-card-four-news> 
+
+
+</div>

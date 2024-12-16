@@ -3,23 +3,27 @@
     align-items: start;
     justify-content: center;
     gap: .5rem;
-    border: 3px solid #000080;
+    /* border: 3px solid #000080; */
     padding: .5rem;
     margin-top: .5rem;
     margin-left: .5rem;
     border-radius: 10px;
+    border-bottom: 1px solid #d3d3d3;
 }
 
 .container:hover{
-    border-color: black;
+    border-color: gray;
 }
 
 .img-style{
+    border-radius: 10px;
     width: 50%;
     height: 70%;
+    border-radius: 10px;
 }
 
 .title-style{
+    color: #000080;
     width: 45%;
     font-size: 1rem;
 }
@@ -34,11 +38,15 @@
 }
 
 @media screen and (max-width: 600px){
+
+    
+
     .title-style{
         font-size: 1.2rem;
     }
 
     .img-style{
         width: 40%;
+       
     }
 }

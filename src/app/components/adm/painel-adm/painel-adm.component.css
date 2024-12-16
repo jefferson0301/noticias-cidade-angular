@@ -70,6 +70,21 @@
     background-color: #6495ED;
 }
 
+.container-errors{
+    width: 70%;
+    margin: 0 auto;
+    
+    text-align: left;
+    margin-top: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+}
+
+.erros{
+    color: red;
+}
 
 @media screen and (max-width: 600px){
     .form-style{

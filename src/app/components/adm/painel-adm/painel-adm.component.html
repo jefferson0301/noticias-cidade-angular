@@ -4,13 +4,25 @@
         <div class="container-input" >
             <label class="label-style" >Titulo</label>
             <input 
-                        type="text" 
-                        name="title" 
-                        placeholder="Adicionar Titulo" 
-                        id="title"
-                        [(ngModel)]="title"
-                        class="input-style"
-                        >
+                type="text" 
+                name="title" 
+                placeholder="Adicionar Titulo" 
+                id="title"
+                [(ngModel)]="title"
+                #ftitle="ngModel"
+                minlength="5"
+                required
+                class="input-style"
+            >
+            <div  class="container-errors" >
+                @if(!titleRequired){
+                    <span  class="erros">O título é obrigatório</span>
+                }
+                @if(!titleLength){
+                    <span  class="erros">O título deve conter pelo menos 5 caracteres</span>
+                }
+                
+            </div>
                 
         </div>
         <div class="container-input" >
@@ -21,9 +33,22 @@
                         placeholder="Adicionar Descrição" 
                         id="description"
                         [(ngModel)]="description"
+                        #fdescription="ngModel"
+                        required
+                        minlength="20"
                         class="input-style text-area-style"
-                        ></textarea>
-                
+                        >
+            </textarea>
+
+            <div  class="container-errors" >
+                @if(!descriptionRequired){
+                    <span class="erros">A descrição é obrigatória</span>
+                }
+                @if(!descriptionLength){
+                    <span class="erros">A descrição deve conter pelo menos 20 caracteres</span>
+                }
+            </div>
+               
         </div>
         <div class="container-input" >
             <label class="label-style" >Url</label>
@@ -33,20 +58,72 @@
                         placeholder="Adicionar Url da imagem da notícia" 
                         id="url"
                         [(ngModel)]="url"
+                        #furl="ngModel"
+                        minlength="10"
+                        required
                         class="input-style"
-                        >
+            >
+                        <div  class="container-errors" >
+                            @if(!urlRequired){
+                                <span class="erros">A url é obrigatória</span>
+                            }
+                            @if(!urlLength){
+                                <span class="erros">A url deve conter pelo menos 10 caracteres</span>
+                            }
+                            
+                        </div>
                 
         </div>
 
         <div class="container-input" >
             <label for="category" class="label-style" >Categoria</label>
-            <select name="category" id="category" class="form-select" [(ngModel)]="category" class="input-style input-category" >
+            <select name="category" id="category" class="form-select" [(ngModel)]="category" #fcategory="ngModel" required class="input-style input-category" >
                 <option hidden="true" value="" >Selecione uma categoria</option>
                 <option value="Política" >Política</option>
                 <option value="Esporte" >Esporte</option>
                 <option value="Internacional" >Internacional</option>
             </select>
+            <div  class="container-errors" >
+                @if(!categoryRequired){
+                    <span   class="erros">A categoria é obrigatória</span>
+                }
+            </div>
+
         </div>
+
+        <div class="container-input" >
+            <label for="category" class="label-style" >Sub Categoria</label>
+            <select name="subCategory" id="subCategory" class="form-select" [(ngModel)]="subCategory" #fcategory="ngModel"  class="input-style input-category" >
+                <option hidden="true" value="" >Selecione uma Sub Categoria</option>
+                <!-- <option value="Brasileirão" >Brasileirão</option>
+                <option value="Libertadores" >Libertadores</option>
+                <option value="Internacional" >Internacional</option> -->
+                @if(category === "Esporte"){
+                    @for(sportsSubCategory of sportsSubCategorys; track sportsSubCategory){
+                        <option value={{sportsSubCategory}} >{{sportsSubCategory}}</option>
+                    }
+                }
+                @if(category === "Internacional"){
+                    @for(internacionalSubCategory of internacionalSubCategorys; track internacionalSubCategory){
+                        <option value={{internacionalSubCategory}} >{{internacionalSubCategory}}</option>
+                    }
+                }
+                @if(category === "Política"){
+                    @for(policySubCategory of policySubCategorys; track policySubCategory){
+                        <option value={{policySubCategory}} >{{policySubCategory}}</option>
+                    }
+                }
+                
+
+            </select>
+            <div  class="container-errors" >
+                @if(!categoryRequired){
+                    <span   class="erros">A sub categoria é obrigatória</span>
+                }
+            </div>
+
+        </div>
+
         <input type="submit"  value="Enviar" class="btn btn-send" >
     </form>
 </div>

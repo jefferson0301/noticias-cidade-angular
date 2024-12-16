@@ -1,0 +1,11 @@
+<div class="container-global">
+
+    <h2 class="title" >Recomendados para você</h2>
+
+    <div class="container-categorys-news" >
+        @for(new of news; track new){
+            <app-new [new]="new"  ></app-new>
+        }
+    </div>
+
+</div>

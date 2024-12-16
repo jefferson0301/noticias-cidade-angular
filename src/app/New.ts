@@ -4,4 +4,5 @@ export interface New{
     description: string
     url: string
     category: string
+    subCategory ?: string
 }

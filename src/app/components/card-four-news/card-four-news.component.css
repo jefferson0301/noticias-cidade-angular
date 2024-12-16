@@ -1,0 +1,36 @@
+
+.container-more-tree-news{
+    margin: 0 auto;
+    width: 95%; 
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    
+}
+
+.container-topic{
+    width: 100%;
+}
+
+.container-title-topic{
+    padding-bottom: .25rem;
+    border-bottom: 1px solid #000080;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.container-title-topic h2{
+    width: 90%;
+    font-size: 2rem;
+    color: #000080;
+}
+
+@media screen and (max-width: 900px){
+    .container-new-emphasis{
+        flex-direction: column;
+    }
+
+    .container-more-tree-news{
+        flex-direction: column;
+    }
+}

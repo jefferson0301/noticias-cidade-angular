@@ -1,5 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'ngx-toastr/toastr';
+
 *{
     padding: 0;
     margin: 0;
+    /* background-color: #d3d3d3; */
+    /* box-sizing: border-box; */
+}
+
+body{
+    /* background-color: #f2f2f2; */
 }

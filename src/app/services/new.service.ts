@@ -20,6 +20,11 @@ export class NewService {
     return this.http.get<New[]>(this.apiUrl)
   }
 
+  // getNewsSports(): Observable<New[]>{
+  //   let aux = this.http.get<New[]>(this.apiUrl).subscribe(dada => dado.category === "Esporte")
+  //   return aux
+  // }
+
   getNew(id: string): Observable<New>{
     
     return this.http.get<New>(`${this.apiUrl}/${id}`)

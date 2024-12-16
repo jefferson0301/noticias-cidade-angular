@@ -1,28 +1,36 @@
 .container-global{
     width: 100%;
-    height: 500px;
+    
 }
 
 .container{
-    width: 60%;
+    width: 50%;
     margin: 1rem auto;
-    border: 3px solid #000080;
     padding: 1rem;
     text-align: center;
 }
 
 .title-style{
+    color: #000080;
     font-family: "Montserat";
     font-size: 2rem;
-    text-align: center;
+    text-align: justify;
 }
 
 .img-style{
     
     margin: 0.5rem auto;
     text-align: center;
-    width: 50%;
-    height: 60%;
+    width: 100%;
+    height: 350px;
+    border-radius: 5px;
+}
+
+.text-style{
+    font-family: "Monteserat", sans-serif;
+    font-size: 1rem;
+    text-align: justify;
+    line-height: 1.5rem;
 }
 
 @media screen and (max-width: 900px){
@@ -31,6 +39,7 @@
     }
 
     .img-style{
-        width: 70%;
+        width: 100%;
+        height: 250px;
     }
 }

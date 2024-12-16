@@ -1,34 +1,56 @@
 
 <div class="news-container" >
 
-    
-
-    <div class="container-last-news" >
-    @if(lastNews.length === 3){
-        <h2 class="title-last-news" >Ultimas Noticias</h2>
-        @for(lastnew of lastNews; track lastnew){
-            <app-last-new [lastNew]="lastnew" ></app-last-new>
-        }
-    }
-    </div>
-    
-
-    <div class="container-news" >
-        <div class="container" >
-            <button class="buton-filter" (click)="swapShowFilter()" >{{bodyFilter}} Filtro</button>
+    <div class="first-container" >
+        <div class="container-new-emphasis" >
+            <app-new-emphasis [new]="newsEmphasis" ></app-new-emphasis> 
         </div>
-        @if(showFilter){
-            <div class="filter-container" >
-                <button class="buton-filter" (click)="setPolicy()" >Política</button> 
-                <button class="buton-filter" (click)="setSport()" >Esporte</button>
-                <button class="buton-filter" (click)="setInternational()" >Internacional</button>
-            </div>
-        }
-        
 
-        @for(new of news; track new){
-            <app-new [new]="new"  ></app-new>
+
+        <div class="container-last-news" >
+        @if(lastNews.length === 3){
+            <h2 class="title-last-news" >Ultimas Noticias</h2>
+            @for(lastnew of lastNews; track lastnew){
+                <app-last-new [lastNew]="lastnew" ></app-last-new>
+            }
         }
+        </div>
+    </div>
+
+    
+    <div class="container-categorys" >
+        <div class="container-title-categorys" >
+            <h2 class="title-categorys" >Internacional</h2>
+        </div>
+        <div class="container-categorys-news" >
+            @for(new of internacionalNews; track new){
+                <app-new [new]="new"  ></app-new>
+            }
+        </div>
+    </div>
+
+    <div class="container-categorys" >
+        <div class="container-title-categorys" >
+            <h2 class="title-categorys" >Política</h2>
+        </div>
+        <div class="container-categorys-news" >
+            @for(new of policyNews; track new){
+                <app-new [new]="new"  ></app-new>
+            }
+        </div>
+    </div>
+
+    <div class="container-categorys" >
+        <div class="container-title-categorys" >
+            <h2 class="title-categorys" >Esportes</h2>
+        </div>
+        <div class="container-categorys-news" >
+            @for(new of sportNews; track new){
+                <app-new [new]="new"  ></app-new>
+            }
+        </div>
     </div>
 
 </div>
+
+
