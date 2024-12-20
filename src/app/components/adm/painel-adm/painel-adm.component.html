@@ -1,144 +1,209 @@
+<div class="container-menu-opcoes" >
+   
+    <div class="tooltip menu-opcoes">
+        <button class="btn btn-show-form" (click)="showFormAddNews()" ><img  src="./adicionar-new.png" alt="Atualizar Notícia"></button>
+        <span class="tooltiptext">Adicionar Noticia</span>
+    </div>
+    <div class="tooltip menu-opcoes">
+        <button class="btn btn-show-form" (click)="showFormAddNews()" ><img  src="./atualizar-new.png" alt="Atualizar Notícia"></button>
+        <span class="tooltiptext">Atualizar Noticia</span>
+    </div>
 
-<div class="container-form" >
-    <form class="form-style" (ngSubmit)="onSubmit()">
-        <div class="container-input" >
-            <label class="label-style" >Titulo</label>
-            <input 
-                type="text" 
-                name="title" 
-                placeholder="Adicionar Titulo" 
-                id="title"
-                [(ngModel)]="title"
-                #ftitle="ngModel"
-                minlength="5"
-                required
-                class="input-style"
-            >
-            <div  class="container-errors" >
-                @if(!titleRequired){
-                    <span  class="erros">O título é obrigatório</span>
-                }
-                @if(!titleLength){
-                    <span  class="erros">O título deve conter pelo menos 5 caracteres</span>
-                }
-                
-            </div>
-                
-        </div>
-        <div class="container-input" >
-            <label class="label-style" >Descrição</label>
-            <textarea 
-                        type="text" 
-                        name="description" 
-                        placeholder="Adicionar Descrição" 
-                        id="description"
-                        [(ngModel)]="description"
-                        #fdescription="ngModel"
-                        required
-                        minlength="20"
-                        class="input-style text-area-style"
-                        >
-            </textarea>
-
-            <div  class="container-errors" >
-                @if(!descriptionRequired){
-                    <span class="erros">A descrição é obrigatória</span>
-                }
-                @if(!descriptionLength){
-                    <span class="erros">A descrição deve conter pelo menos 20 caracteres</span>
-                }
-            </div>
-               
-        </div>
-        <div class="container-input" >
-            <label class="label-style" >Url</label>
-            <input 
-                        type="text" 
-                        name="url" 
-                        placeholder="Adicionar Url da imagem da notícia" 
-                        id="url"
-                        [(ngModel)]="url"
-                        #furl="ngModel"
-                        minlength="10"
-                        required
-                        class="input-style"
-            >
-                        <div  class="container-errors" >
-                            @if(!urlRequired){
-                                <span class="erros">A url é obrigatória</span>
-                            }
-                            @if(!urlLength){
-                                <span class="erros">A url deve conter pelo menos 10 caracteres</span>
-                            }
-                            
-                        </div>
-                
-        </div>
-
-        <div class="container-input" >
-            <label for="category" class="label-style" >Categoria</label>
-            <select name="category" id="category" class="form-select" [(ngModel)]="category" #fcategory="ngModel" required class="input-style input-category" >
-                <option hidden="true" value="" >Selecione uma categoria</option>
-                <option value="Política" >Política</option>
-                <option value="Esporte" >Esporte</option>
-                <option value="Internacional" >Internacional</option>
-            </select>
-            <div  class="container-errors" >
-                @if(!categoryRequired){
-                    <span   class="erros">A categoria é obrigatória</span>
-                }
-            </div>
-
-        </div>
-
-        <div class="container-input" >
-            <label for="category" class="label-style" >Sub Categoria</label>
-            <select name="subCategory" id="subCategory" class="form-select" [(ngModel)]="subCategory" #fcategory="ngModel"  class="input-style input-category" >
-                <option hidden="true" value="" >Selecione uma Sub Categoria</option>
-                <!-- <option value="Brasileirão" >Brasileirão</option>
-                <option value="Libertadores" >Libertadores</option>
-                <option value="Internacional" >Internacional</option> -->
-                @if(category === "Esporte"){
-                    @for(sportsSubCategory of sportsSubCategorys; track sportsSubCategory){
-                        <option value={{sportsSubCategory}} >{{sportsSubCategory}}</option>
-                    }
-                }
-                @if(category === "Internacional"){
-                    @for(internacionalSubCategory of internacionalSubCategorys; track internacionalSubCategory){
-                        <option value={{internacionalSubCategory}} >{{internacionalSubCategory}}</option>
-                    }
-                }
-                @if(category === "Política"){
-                    @for(policySubCategory of policySubCategorys; track policySubCategory){
-                        <option value={{policySubCategory}} >{{policySubCategory}}</option>
-                    }
-                }
-                
-
-            </select>
-            <div  class="container-errors" >
-                @if(!categoryRequired){
-                    <span   class="erros">A sub categoria é obrigatória</span>
-                }
-            </div>
-
-        </div>
-
-        <input type="submit"  value="Enviar" class="btn btn-send" >
-    </form>
+    <div class="container-search" >
+        <input 
+            style="font-family: 'Font Awesome 5 Free'; font-weight: 700;"
+            type="text" 
+            name="titleSearch" 
+            placeholder=" &#xf002; Pesquisar Noticia" 
+            id="titleSearch"
+            [(ngModel)]="titleSearch"
+            class="input-style input-search"
+            (keyup)="search()"
+        >
+    
+    </div>
 </div>
 
-<div class="container-news" >
-
+@if(showFormAddNew){
+    <div class="container-form" >
+        <form class="form-style" (ngSubmit)="onSubmit()">
+            <div class="container-input" >
+                <label class="label-style" >Titulo</label>
+                <input 
+                    type="text" 
+                    name="title" 
+                    placeholder="Adicionar Titulo" 
+                    id="title"
+                    [(ngModel)]="title"
+                    #ftitle="ngModel"
+                    minlength="5"
+                    required
+                    class="input-style"
+                >
+                <div  class="container-errors" >
+                    @if(!titleRequired){
+                        <span  class="erros">O título é obrigatório</span>
+                    }
+                    @if(!titleLength){
+                        <span  class="erros">O título deve conter pelo menos 5 caracteres</span>
+                    }
+                    
+                </div>
+                    
+            </div>
+            <div class="container-input" >
+                <label class="label-style" >Descrição</label>
+                <textarea 
+                            type="text" 
+                            name="description" 
+                            placeholder="Adicionar Descrição" 
+                            id="description"
+                            [(ngModel)]="description"
+                            #fdescription="ngModel"
+                            required
+                            minlength="20"
+                            class="input-style text-area-style"
+                            >
+                </textarea>
     
-
-@for(new of news; track new){
-    <app-adm-new 
-        [new]="new"
-        (onDeleteNew)="deleteNew($event)"
-        (onUpdateNew)="updateNew($event)"
-     ></app-adm-new>
+                <div  class="container-errors" >
+                    @if(!descriptionRequired){
+                        <span class="erros">A descrição é obrigatória</span>
+                    }
+                    @if(!descriptionLength){
+                        <span class="erros">A descrição deve conter pelo menos 20 caracteres</span>
+                    }
+                </div>
+                   
+            </div>
+            <div class="container-input" >
+                <label class="label-style" >Url</label>
+                <input 
+                            type="text" 
+                            name="url" 
+                            placeholder="Adicionar Url da imagem da notícia" 
+                            id="url"
+                            [(ngModel)]="url"
+                            #furl="ngModel"
+                            minlength="10"
+                            required
+                            class="input-style"
+                >
+                            <div  class="container-errors" >
+                                @if(!urlRequired){
+                                    <span class="erros">A url é obrigatória</span>
+                                }
+                                @if(!urlLength){
+                                    <span class="erros">A url deve conter pelo menos 10 caracteres</span>
+                                }
+                                
+                            </div>
+                    
+            </div>
+    
+            <div class="container-input" >
+                <label for="category" class="label-style" >Categoria</label>
+                <select name="category" id="category" class="form-select" [(ngModel)]="category" #fcategory="ngModel" required class="input-style input-category" >
+                    <option hidden="true" value="" >Selecione uma categoria</option>
+                    <option value="Política" >Política</option>
+                    <option value="Esporte" >Esporte</option>
+                    <option value="Internacional" >Internacional</option>
+                </select>
+                <div  class="container-errors" >
+                    @if(!categoryRequired){
+                        <span   class="erros">A categoria é obrigatória</span>
+                    }
+                </div>
+    
+            </div>
+    
+            <div class="container-input" >
+                <label for="category" class="label-style" >Sub Categoria</label>
+                <select name="subCategory" id="subCategory" class="form-select" [(ngModel)]="subCategory" #fcategory="ngModel"  class="input-style input-category" >
+                    <option hidden="true" value="" >Selecione uma Sub Categoria</option>
+                    <!-- <option value="Brasileirão" >Brasileirão</option>
+                    <option value="Libertadores" >Libertadores</option>
+                    <option value="Internacional" >Internacional</option> -->
+                    @if(category === "Esporte"){
+                        @for(sportsSubCategory of sportsSubCategorys; track sportsSubCategory){
+                            <option value={{sportsSubCategory}} >{{sportsSubCategory}}</option>
+                        }
+                    }
+                    @if(category === "Internacional"){
+                        @for(internacionalSubCategory of internacionalSubCategorys; track internacionalSubCategory){
+                            <option value={{internacionalSubCategory}} >{{internacionalSubCategory}}</option>
+                        }
+                    }
+                    @if(category === "Política"){
+                        @for(policySubCategory of policySubCategorys; track policySubCategory){
+                            <option value={{policySubCategory}} >{{policySubCategory}}</option>
+                        }
+                    }
+                    
+    
+                </select>
+                <div  class="container-errors" >
+                    @if(!categoryRequired){
+                        <span   class="erros">A sub categoria é obrigatória</span>
+                    }
+                </div>
+    
+            </div>
+    
+            <input type="submit"  value="Enviar" class="btn btn-send" >
+        </form>
+    </div>
 }
 
+@if(haveNews){
+    <div class="container-news" >
 
-</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Titulo</th>
+                    <th>Imagem</th>
+                    <th class="table-category" >Categoria</th>
+                    <th class="table-category" >Sub Categoria</th>
+                    <!-- <th>Descrição</th> -->
+                    <th>Ação</th>
+                </tr>
+            </thead>
+           
+            <tbody>
+                @for(new of searchNews; track new){
+                    <tr>
+                        <td>{{new.title}}</td>
+                        <td><img width="75px" height="75px" src={{new.url}} alt={{new.title}}> </td>
+                        <td class="table-category" >{{new.category}}</td>
+                        <td class="table-category" >{{new.subCategory}}</td>
+                        <!-- <td class="description-style" >{{new.description}}</td> -->
+                        <td> 
+                            <!-- <button class="btn btn-delete" >Deletar</button>
+                            <button class="btn btn-edit" >Editar</button> -->
+                            <!-- <button class="btn btn-look" >Visulizar</button>   -->
+                            <div class="tooltip menu-opcoes">
+                                <button class="btn btn-show-form btn-actions" (click)="deleteNew(new)" ><img  src="./lixeira.png" alt="Atualizar Notícia"></button>
+                                <span class="tooltiptext">Deletar Noticia</span>
+                            </div>
+                            <div class="tooltip menu-opcoes">
+                                <button class="btn btn-show-form btn-actions" (click)="updateNew(new)" ><img  src="./pincel.png" alt="Atualizar Notícia"></button>
+                                <span class="tooltiptext">Editar Noticia</span>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        
+        
+        </div>
+}
+
+@else{
+    <div class="container-not-found" >
+        <p>Não há nenhuma noticia com o titulo: <span class="title-search-style" > {{titleSearch}} </span> </p>
+    </div>
+    
+}
+

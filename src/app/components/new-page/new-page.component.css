@@ -11,7 +11,13 @@
 }
 
 .title-style{
-    color: #000080;
+    /* color: #000080; */
+    color: #000080 ; 
+    /* background-image: linear-gradient(to top, #000080, #323292, steelblue); */
+    /* background-image: radial-gradient(circle at 50% -20.71%, #b359ff 0, #7d4bff 25%, #3c3cf2 50%, #002dcd 75%, #0020ab 100%); */
+    /* background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
     font-family: "Montserat";
     font-size: 2rem;
     text-align: justify;

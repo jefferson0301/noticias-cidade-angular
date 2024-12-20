@@ -1,1 +1,23 @@
-<p>internacional works!</p>
+<div class="container-page-policy" >
+
+    <div class="container-new-emphasis" >
+        <div class="card-new-emphasis-main">
+            <app-new-emphasis-category [new]="newEmpassis" ></app-new-emphasis-category>
+        </div>
+        <div class="card-news-emphasis-secondary">
+            <app-new-emphasis-category [new]="newEmpassis2" ></app-new-emphasis-category>
+        </div> 
+    </div>
+
+    <div class="container-more-tree-news" >
+    @for(new of treeMoreViews; track new){
+        <app-new-direct-column [new]="new"  ></app-new-direct-column>
+    }
+    </div>
+
+    <app-card-four-news [news]="americaFoursLastNews" [title]="titleAmerica" ></app-card-four-news> 
+    <app-card-four-news [news]="europaFoursLastNews" [title]="titleEuropa" ></app-card-four-news> 
+    <app-card-four-news [news]="ocidenteFoursLastNews" [title]="titleOcidente" ></app-card-four-news> 
+
+
+</div>

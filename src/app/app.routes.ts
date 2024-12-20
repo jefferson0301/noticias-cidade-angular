@@ -7,16 +7,25 @@ import { NewPageComponent } from './components/new-page/new-page.component';
 import { InternacionalComponent } from "./components/pages/internacional/internacional.component";
 import { PolicyComponent } from "./components/pages/policy/policy.component";
 import { SportsComponent } from "./components/pages/sports/sports.component";
+import { title } from "process";
 
 
 export const routes: Routes = [
 
-        {path: 'new/:id/new/:id', component: NewPageComponent },
-        {path: 'esportes/new/:id', component: NewPageComponent },
+        // {path: 'internacional/new/:id/new/:id/new/:id', component: NewPageComponent, data:{ title: "Noticia" } },
+        // {path: 'politica/new/:id/new/:id/new/:id', component: NewPageComponent, data:{ title: "Noticia" } },
+        // {path: 'esportes/new/:id/new/:id/new/:id', component: NewPageComponent , data:{ title: "Noticia" } },
+        {path: 'internacional/new/:id/new/:id', component: NewPageComponent, data:{ title: "Noticia" } },
+        {path: 'politica/new/:id/new/:id', component: NewPageComponent, data:{ title: "Noticia" } },
+        {path: 'esportes/new/:id/new/:id', component: NewPageComponent , data:{ title: "Noticia" } },
+        {path: 'new/:id/new/:id', component: NewPageComponent , data:{ title: "Noticia" } },
+        {path: 'internacional/new/:id', component: NewPageComponent , data:{ title: "Noticia" }},
+        {path: 'esportes/new/:id', component: NewPageComponent , data:{ title: "Noticia" }},
+        {path: 'politica/new/:id', component: NewPageComponent , data:{ title: "Noticia" } },
         { path: 'internacional', component: InternacionalComponent },
         { path: 'politica', component: PolicyComponent },
         { path: 'esportes', component: SportsComponent },
-        {path: 'new/:id', component: NewPageComponent },
+        {path: 'new/:id', component: NewPageComponent, data:{ title: 'Noticia' } },
         { path: '', component: NewsComponent },
         { path: 'adm', component: LoginComponent },
         { path: '**', component: NotFoundPageComponent },

@@ -27,7 +27,7 @@
     color: white;
     /* text-shadow: 0px 0px 10px white; */
     font-size: 1.5rem;
-    top: 85%;
+    top: 80%;
     left: 0 ;
     margin: 0 auto;
     text-align: center;
@@ -51,6 +51,15 @@
 @media screen and (max-width: 900px){
 
     .title-style{
-        top: 80%;
+        font-size: 1.3rem;
+        top: 70%;
+    }
+}
+
+@media screen and (max-width: 600px){
+
+    .title-style{
+        font-size: 1.1rem;
+        top: 68%;
     }
 }

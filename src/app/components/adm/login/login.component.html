@@ -1,51 +1,53 @@
-<div class="container-global">
+
 @if(!flagContinue){
-    
-<div class="container"   > 
+<div class="container-global"> 
+    <div class="container"   > 
 
-    <div class="container-form">
-        <img class="image" src="user-interface.png" alt="Logo">
+        <div class="container-form">
+            <img class="image" src="user-interface.png" alt="Logo">
+            
+            <form (ngSubmit)="onSubmit()" class="form" >
+                <div class="containerInput" >
+                    <!-- <h2>Area Administrativa</h2>
+                    <label class="lbl" for="login">Login</label> -->
+                    <input 
+                            style="font-family: 'Font Awesome 5 Free'; font-weight: 700;"
+                            type="text" 
+                            name="text" 
+                            placeholder=" &#xf2bd;  Login" 
+                            id="text"
+                            [(ngModel)]="loginInput"
+                            class="input"
+                            >
+                </div>
+            
+
+                <div class="containerInput" >
+                    <!-- <label class="lbl" for="login">Senha</label> -->
+                    <input 
+                        style="font-family: 'Font Awesome 5 Free'; font-weight: 700;"
+                            type="password" 
+                            name="password" 
+                            placeholder=" &#xf023;  Senha" 
+                            id="password"
+                            [(ngModel)]="password"
+                            class="input"
+                            >
+                </div>
+                
+                
+
+                <input class="btn_login" type="submit" value="Entrar"  >
+                
+            </form>
+        </div>
         
-        <form (ngSubmit)="onSubmit()" class="form" >
-            <div class="containerInput" >
-                <!-- <h2>Area Administrativa</h2>
-                <label class="lbl" for="login">Login</label> -->
-                <input 
-                        type="text" 
-                        name="text" 
-                        placeholder="Login" 
-                        id="text"
-                        [(ngModel)]="loginInput"
-                        class="input"
-                        >
-            </div>
-        
-
-            <div class="containerInput" >
-                <!-- <label class="lbl" for="login">Senha</label> -->
-                <input 
-                        type="password" 
-                        name="password" 
-                        placeholder="Senha" 
-                        id="password"
-                        [(ngModel)]="password"
-                        class="input"
-                        >
-            </div>
-            
-            
-
-            <input class="btn_login" type="submit" value="Entrar"  >
-            
-        </form>
     </div>
-    
 </div>
 }
 
 @if(flagContinue){
-    
+    <div class="container-global-two"> 
         <app-painel-adm></app-painel-adm>
-    
+    </div>
 } 
-</div>

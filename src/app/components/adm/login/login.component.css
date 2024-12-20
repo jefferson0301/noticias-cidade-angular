@@ -1,10 +1,15 @@
-.container-global{
+.container-global, .container-global-two{
     width: 100%;
     height: 100%;
     padding: 4.5rem 0;
-    background-image: linear-gradient( to right, #d2d2d2 50%, #d7d7d760  ); 
-    /* background-color: #d2d2d2; */
+    /* background-image: linear-gradient( to right, #d2d2d2 50%, #d7d7d760  );  */
+    /* background-color: #d2d2d2;  */
+    background-color: #d2d2d2;
 }
+
+.container-global-two{
+    background-color: white;
+} 
 
 .container{
     text-align: center;
@@ -19,7 +24,10 @@
     margin: 0 auto; 
     
     background-color: #d2d2d2;
-    background-image: linear-gradient( to top, white 68% , #000080 ); 
+    background-image: linear-gradient( to top,   white 68% , #000080);   
+    /* background-color: white;  */
+    box-shadow: 0 3px 3px 5px rgba(0, 0, 0, 0.5);
+    opacity: 1;
     /* background-color: white;
     background-color: transparent; */
 }
@@ -27,6 +35,7 @@
 .container-form{
     width: 100%;
     margin-top: 3rem;
+    
     /* opacity: 70%; */
     
 }
@@ -96,25 +105,27 @@
 }
 
 @media screen and (max-width: 900px){
-    .container-global{
+    .container-global .container-global-two{
         padding: 2.5rem 0;
+        
     }
 
     .container{
         height: 350px;
+        margin: 9.5rem auto;
     }
 }
 
 
 @media screen and (max-width: 600px){
 
-    .container-global{
+    .container-global .container-global-two{
         padding: .5rem 0;
     }
 
     .container{
         width: 70%;
-        margin: 3.5rem auto;
+        margin: 9.5rem auto;
         height: 300px;
     }
 

@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { NewService } from '../../../services/new.service';
 import { New } from '../../../New';
-import { AdmNewComponent } from '../adm-new/adm-new.component';
+//import { AdmNewComponent } from '../adm-new/adm-new.component';
 import {FormsModule} from '@angular/forms'
 import { CommonModule, NgIf } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-painel-adm',
-  imports: [AdmNewComponent, FormsModule, CommonModule],
+  imports: [ FormsModule, CommonModule],
   templateUrl: './painel-adm.component.html',
   styleUrl: './painel-adm.component.css'
 })
@@ -16,8 +16,8 @@ export class PainelAdmComponent implements OnInit {
 
   //arrays fixos de sub categorias
   sportsSubCategorys: string [] = ["Brasileirão", "Libertadores", "Internacional"]
-  policySubCategorys: string [] = ["1", "2", "3"]
-  internacionalSubCategorys: string [] = ["4", "5", "6"]
+  policySubCategorys: string [] = ["Nacional", "Estadual","Municipal"]
+  internacionalSubCategorys: string [] = ["America", "Europa", "Ocidente"]
 
   //input formulario de adição de notícia
   id: string = ""
@@ -33,15 +33,34 @@ export class PainelAdmComponent implements OnInit {
   urlRequired: boolean = true
   urlLength: boolean = true
   categoryRequired: boolean = true
-  
+  showFormAddNew: boolean = false
+  //pesquisa noticias
+  searchNews: Array<New> = [] // array variavel para pesquisar
+  titleSearch: string = "" //titulo a ser pesquisado
+  haveNews: boolean = true
 
-  news: Array<New> = []
+  news: Array<New> = [] //array fixo das noticias
 
   constructor(private newService: NewService, private toastr: ToastrService) {}
+
+  search(){
+    this.searchNews = this.news.filter( (data) => data.title.includes(this.titleSearch) )
+    if(this.searchNews.length === 0){
+      this.haveNews = false
+    }
+    else{
+      this.haveNews = true
+    }
+  }
+
+  showFormAddNews(){
+    this.showFormAddNew = !this.showFormAddNew
+  }
 
   ngOnInit(): void {
     this.newService.getNews().subscribe((dado) => {
       this.news = dado
+      this.searchNews = dado
       console.log(this.news)
     })
   }
@@ -124,6 +143,7 @@ export class PainelAdmComponent implements OnInit {
   addNew(new2: New): void{
     this.newService.addNew(new2).subscribe((dado: New) =>{
       this.news.push(dado)
+      this.searchNews = this.news
     })
     this.toastr.success("Noticia adiciona com Sucesso", "Adicionada", {timeOut: 3000, progressBar: true})
   }
@@ -142,6 +162,7 @@ export class PainelAdmComponent implements OnInit {
   deleteNew(new3: New): void{
     this.newService.deleteNew(new3).subscribe((dado: New) =>{
       this.news = this.news.filter(  (n) => n.id !== new3.id )
+      this.searchNews = this.news
     } )
     this.toastr.success("Noticia deletada com Sucesso", "Deletada", {timeOut: 3000, progressBar: true})
   }

@@ -5,7 +5,8 @@
     align-items: center;
     justify-content: center; 
     gap: 1rem;
-    margin: 1rem auto;
+    margin: 3.5rem auto;
+    
 }
 
 .container-form{
@@ -15,8 +16,38 @@
     
 }
 
+.container-search{
+    width: 100%;
+}
+
+.container-not-found{
+    background-color: #d2d2d2;
+    padding: 1rem 0;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 35rem;
+    text-align: center;
+    box-shadow: 0 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.container-not-found p{
+    font-family: "Montserat", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.title-search-style{
+    color: #000080;
+    font-weight: bold;
+    
+}
+
+.input-search{
+    width: 90%;
+}
+
 .form-style{
-    border: 3px solid #000080;
+    border: 1px solid #d2d2d2;
     border-radius: 10px;
     padding: .5rem;
     width: 30%;
@@ -24,6 +55,27 @@
     margin: 1rem auto;
     text-align: center;
    
+}
+
+.container-menu-opcoes{
+   
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    text-align: center;
+    margin:  0 auto;
+    
+}
+
+.menu-opcoes{
+    border-radius: 10px;
+    padding: .25rem;
+    
+    display: inline-block;
+    margin: 1rem auto;
+    text-align: center;
+    
 }
 
 .container-input{
@@ -59,16 +111,80 @@
 
 .btn{
     color: white;
-    padding: .5rem;
+    padding: .35rem;
     font-weight: 700;
-    font-family: "Montserrat";
-    border-radius: 10px;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 6px;
     background-color: #000080;
 }
 
-.btn-send:hover{
-    background-color: #6495ED;
+.btn-show-form{
+    font-size: 1.3rem;
+    border-radius: 5px;
+    background-color: white;
 }
+
+.btn-delete{
+    background-color: red;
+    margin-right: .25rem;
+}
+
+.btn-edit{
+    
+    background-color: green;
+    margin-top: .25rem;
+}
+
+.btn-look{
+    margin-top: .25rem;
+    background-color: green;
+}
+
+.btn-send:hover{
+    background-color: #000060;
+}
+
+.btn-actions{
+    padding: auto 0;
+}
+
+/* Tooltips */
+.tooltip  {
+    position: relative;
+    display: inline-block;
+    border-radius: 1px solid black;
+  }
+  
+  /* Tooltip text */
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 70px;
+    background-color: white; 
+    color: black;
+    
+    text-align: center;
+    padding: 5px 1px;
+    border-radius: 6px;
+    border: 1px solid black;
+   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    top: 3.75rem;
+    left: 0rem;
+    z-index: 1;
+  }
+
+  .tooltip:hover .tooltiptext  {
+    transition: .5s;
+    visibility: visible;
+    border-radius: 1px solid black;
+  }
+
+  /* .tooltip2 .tooltiptext2{
+    top: 0;
+  } */
+
+ 
 
 .container-errors{
     width: 70%;
@@ -82,11 +198,102 @@
     align-items: left;
 }
 
+/* Estilos da tabela */
+
+
+
+thead{
+    border: 1px solid black;    
+
+}
+
+th{
+   
+    
+    text-align: left;
+    font-size: 1.3rem;
+    padding: 0 0.5rem;
+}
+
+td{
+    /* text-align: justify; */
+    
+    
+    font-size: 1rem;
+    font-family: "Montserat", sans-serif;
+    width: 200px;
+    
+    /* padding: 0 0.5rem;  */
+    
+}
+
+tr{
+    
+    align-items: start;
+    border-bottom: 1px solid #d2d2d2;
+    padding-bottom: .5rem;
+    /* padding: .5rem .25rem; */
+
+}
+
+.tabela, th, td{
+    border-collapse:collapse;
+    padding: 5px;
+    text-align: justify;
+    border-bottom: 1px solid #d2d2d2;
+    font-family: "Montserat", sans-serif;
+}
+
+table{
+    
+    padding: .25rem;
+    text-align: top;
+    border: 1px solid #d2d2d2;
+    border-radius: 10px;
+    
+}
+
+
+
+.description-style{
+    font-family: "Monteserrat", sans-serif;
+    font-size: .4rem;
+}
+
 .erros{
     color: red;
 }
 
+@media screen and (max-width: 1000px){
+    
+    td{
+        width: 150px;
+    }
+
+    table{
+        width: 600px;
+    }
+
+    .table-category{
+        /* visibility: none; */
+         display: none;
+         /* box-shadow: none;
+         width: 0;
+         height: 0; */
+     }
+
+     .btn-actions{
+        width: 50px;
+        padding: 1px;
+     }
+}
+
 @media screen and (max-width: 600px){
+
+    .tooltip .tooltiptext {
+        top: 2.25rem;
+    }
+
     .form-style{
         width: 70%;
     }
@@ -94,4 +301,34 @@
     .input-style{
         width: 80%;
     }
+
+    td{
+        width: 110px;
+        font-size: .8rem;
+    }
+
+    table{
+        width: 350px;
+        
+    }
+    
+
+    .btn-delete{
+        width: 25px;
+        padding: 0;
+    }
+
+    .btn-edit{
+        width: 25px;
+        padding: 0;
+    }
+
+    .btn-actions{
+        width: 30px;
+        height: 30px;
+    }
+
+    .btn-actions img{
+        width: 22px;
+     }
 }

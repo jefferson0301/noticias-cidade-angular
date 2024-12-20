@@ -17,8 +17,8 @@
 
 .img-style{
     border-radius: 10px;
-    width: 50%;
-    height: 70%;
+    width: 45%;
+    height: 135px;
     border-radius: 10px;
 }
 
@@ -26,6 +26,7 @@
     color: #000080;
     width: 45%;
     font-size: 1rem;
+    text-align: justify;
 }
 
 .link-style{
@@ -46,7 +47,7 @@
     }
 
     .img-style{
-        width: 40%;
+        width: 35%;
        
     }
 }
